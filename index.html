@@ -421,6 +421,67 @@
           });
         });
       }
+
+      const smoothScrollTo = (targetY, duration = 650) => {
+        const startY =
+          window.pageYOffset || document.documentElement.scrollTop || 0;
+        const distance = targetY - startY;
+        if (Math.abs(distance) < 2) {
+          return;
+        }
+        const startTime = performance.now();
+        const easeInOut = (t) =>
+          t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+        const step = (now) => {
+          const elapsed = now - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = easeInOut(progress);
+          window.scrollTo(0, startY + distance * eased);
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          }
+        };
+        requestAnimationFrame(step);
+      };
+
+      const getTargetTop = (target) => {
+        const header = document.querySelector(".site-header");
+        const headerOffset = header ? header.offsetHeight : 0;
+        return (
+          target.getBoundingClientRect().top +
+          (window.pageYOffset || document.documentElement.scrollTop || 0) -
+          headerOffset
+        );
+      };
+
+      document.addEventListener(
+        "click",
+        (event) => {
+          const link = event.target.closest('a[href^="#"]');
+          if (!link) {
+            return;
+          }
+          const targetId = link.getAttribute("href");
+          if (!targetId || targetId === "#") {
+            return;
+          }
+          const target = document.querySelector(targetId);
+          if (!target) {
+            return;
+          }
+          event.preventDefault();
+          smoothScrollTo(getTargetTop(target));
+          history.pushState(null, "", targetId);
+        },
+        { capture: true }
+      );
+
+      if (window.location.hash) {
+        const target = document.querySelector(window.location.hash);
+        if (target) {
+          setTimeout(() => smoothScrollTo(getTargetTop(target)), 0);
+        }
+      }
     </script>
   </body>
 </html>
