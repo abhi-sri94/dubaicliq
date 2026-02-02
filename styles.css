@@ -1,5 +1,4 @@
-html,
-body {
+html {
   scroll-behavior: smooth;
 }
 
@@ -279,6 +278,10 @@ a {
 
 .section {
   padding: 70px 0;
+}
+
+section[id] {
+  scroll-margin-top: 90px;
 }
 
 .section.alt {
