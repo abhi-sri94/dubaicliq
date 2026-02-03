@@ -96,7 +96,7 @@ a {
 }
 
 .menu-toggle {
-  display: none;
+  display: inline-flex;
   flex-direction: column;
   gap: 6px;
   background: transparent;
@@ -925,10 +925,6 @@ textarea:focus {
 @media (max-width: 900px) {
   .nav {
     display: none;
-  }
-
-  .menu-toggle {
-    display: inline-flex;
   }
 
   .section-heading,
