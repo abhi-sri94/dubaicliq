@@ -165,6 +165,45 @@ function qsa(sel, root = document) {
   });
 })();
 
+// Homepage search (index only): filters featured product cards and scrolls to the section.
+(function initHomeSearch() {
+  const form = qs(".search-form");
+  const input = qs(".search-input");
+  const hint = qs(".search-hint");
+  const featured = qs("#featured");
+  const cards = qsa(".product-card");
+
+  if (!form || !input || !featured || cards.length === 0) return;
+
+  const applyFilter = (q) => {
+    const query = q.trim().toLowerCase();
+    let visible = 0;
+    cards.forEach((card) => {
+      const tags = String(card.getAttribute("data-tags") || "").toLowerCase();
+      const text = (card.textContent || "").toLowerCase();
+      const match = !query || tags.includes(query) || text.includes(query);
+      card.style.display = match ? "" : "none";
+      if (match) visible += 1;
+    });
+    if (hint) {
+      hint.textContent = query
+        ? `${visible} result${visible === 1 ? "" : "s"} for “${q.trim()}”`
+        : "";
+    }
+  };
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    applyFilter(input.value);
+    featured.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  input.addEventListener("input", () => {
+    // live filter, but don't auto-scroll on every keystroke
+    applyFilter(input.value);
+  });
+})();
+
 // Thank-you page: build WhatsApp + email links from saved lead
 (function initThankYou() {
   const wa = qs("#send-whatsapp");

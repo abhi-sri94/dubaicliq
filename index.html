@@ -14,26 +14,54 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260203-9" />
+    <link rel="stylesheet" href="styles.css?v=20260203-10" />
   </head>
   <body>
-    <header class="site-header">
-      <div class="container header-inner">
-        <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="side-drawer">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <a class="logo" href="#top">
-          <span class="logo-mark">DC</span>
-          <span class="logo-text">Dubaicliq</span>
-        </a>
-        <nav class="nav" aria-label="Primary">
+    <header class="site-header emax">
+      <div class="header-top">
+        <div class="container header-top-inner">
+          <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="side-drawer">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <a class="brand" href="#top" aria-label="Dubaicliq home">
+            <span class="logo-mark">DC</span>
+            <span class="logo-text">Dubaicliq</span>
+          </a>
+
+          <a class="header-icon" href="#contact" aria-label="Get a Quote">
+            Quote
+          </a>
+        </div>
+      </div>
+
+      <div class="header-search">
+        <div class="container">
+          <form class="search-form" role="search" aria-label="Search equipment">
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <input
+              class="search-input"
+              type="search"
+              name="q"
+              placeholder="Search equipment (projector, video wall, microphone...)"
+              autocomplete="off"
+            />
+            <button class="search-btn" type="submit">Search</button>
+          </form>
+          <div class="search-hint" aria-live="polite"></div>
+        </div>
+      </div>
+
+      <div class="header-links">
+        <div class="container header-links-inner" aria-label="Quick links">
+          <a href="#equipment">All Categories</a>
           <a href="#solutions">Solutions</a>
           <a href="#industries">Industries</a>
           <a href="#process">Process</a>
-          <a href="#contact" class="btn btn-outline">Get a Quote</a>
-        </nav>
+          <a href="#contact">Contact</a>
+        </div>
       </div>
     </header>
 
@@ -368,6 +396,70 @@
                 <button class="dot" type="button" aria-label="Go to slide 4" aria-selected="false"></button>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="featured">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Featured</p>
+              <h2>Popular equipment categories (with real-world installs).</h2>
+            </div>
+            <p class="section-lead">
+              Browse common AV building blocks. Pricing and exact models vary by space—request a quote for the right fit.
+            </p>
+          </div>
+
+          <div class="product-grid">
+            <article class="product-card" data-tags="projector display screen ust laser">
+              <div class="product-image img-projector" role="img" aria-label="Projector and screen"></div>
+              <div class="product-body">
+                <h3>Projectors &amp; Screens</h3>
+                <p>Laser projectors, screens, mounts, and calibration.</p>
+                <div class="product-actions">
+                  <a class="btn btn-primary" href="#contact">Request Quote</a>
+                  <a class="btn btn-outline" href="#equipment-displays">Browse</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card" data-tags="video wall signage led lcd display">
+              <div class="product-image img-videowall" role="img" aria-label="Video wall display"></div>
+              <div class="product-body">
+                <h3>Video Walls &amp; Signage</h3>
+                <p>LED/LCD walls, players, controllers, and content delivery.</p>
+                <div class="product-actions">
+                  <a class="btn btn-primary" href="#contact">Request Quote</a>
+                  <a class="btn btn-outline" href="#equipment-videowalls">Browse</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card" data-tags="microphone wireless lapel handheld boundary">
+              <div class="product-image img-mics" role="img" aria-label="Microphones and wireless system"></div>
+              <div class="product-body">
+                <h3>Microphones &amp; Wireless</h3>
+                <p>Handheld/lapel/boundary mics with reliable RF planning.</p>
+                <div class="product-actions">
+                  <a class="btn btn-primary" href="#contact">Request Quote</a>
+                  <a class="btn btn-outline" href="#equipment-mics">Browse</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card" data-tags="conference room camera speakerphone byod teams zoom">
+              <div class="product-image img-conference" role="img" aria-label="Conference room system"></div>
+              <div class="product-body">
+                <h3>Conference Room Systems</h3>
+                <p>Cameras, speakerphones, BYOD kits, and room UX.</p>
+                <div class="product-actions">
+                  <a class="btn btn-primary" href="#contact">Request Quote</a>
+                  <a class="btn btn-outline" href="#equipment-conf">Browse</a>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
       </section>
@@ -846,6 +938,6 @@
         <span>Trusted AV company in the UAE.</span>
       </div>
     </footer>
-    <script src="app.js?v=20260203-1" defer></script>
+    <script src="app.js?v=20260203-2" defer></script>
   </body>
 </html>
