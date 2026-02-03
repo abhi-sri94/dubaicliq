@@ -7,6 +7,24 @@ function qsa(sel, root = document) {
   return Array.from(root.querySelectorAll(sel));
 }
 
+// Always start the homepage from the top (ignore any existing #hash).
+// This prevents the site from reopening at e.g. #contact if the URL keeps the hash.
+(function forceHomeToTop() {
+  const isIndex =
+    window.location.pathname.endsWith("/") ||
+    window.location.pathname.endsWith("/index.html") ||
+    window.location.pathname.endsWith("index.html");
+  if (!isIndex) return;
+
+  if (!window.location.hash) return;
+
+  window.addEventListener("load", () => {
+    // Remove hash without adding a new history entry.
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  });
+})();
+
 // Drawer (hamburger) + mega categories behavior
 (function initDrawer() {
   const menuToggle = qs(".menu-toggle");
