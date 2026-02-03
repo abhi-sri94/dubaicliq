@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260203-10" />
+    <link rel="stylesheet" href="styles.css?v=20260203-11" />
   </head>
   <body>
     <header class="site-header emax">
@@ -306,14 +306,13 @@
     </aside>
 
     <main id="top">
-      <section class="banner-slider" aria-label="Featured solutions">
-        <div class="container">
-          <div
-            class="carousel"
-            role="group"
-            aria-roledescription="carousel"
-            aria-label="Featured solutions carousel"
-          >
+      <section class="banner-slider full" aria-label="Featured solutions">
+        <div
+          class="carousel"
+          role="group"
+          aria-roledescription="carousel"
+          aria-label="Featured solutions carousel"
+        >
             <div class="carousel-viewport">
               <button class="carousel-btn prev is-overlay" type="button" aria-label="Previous slide">
                 ‹
@@ -333,7 +332,7 @@
                     </p>
                     <div class="carousel-actions">
                       <a class="btn btn-primary" href="#contact">Request a Quote</a>
-                      <a class="btn btn-outline" href="#solutions">View Solutions</a>
+                      <a class="btn btn-outline" href="#equipment">Browse Equipment</a>
                     </div>
                   </div>
                 </article>
@@ -349,7 +348,7 @@
                     </p>
                     <div class="carousel-actions">
                       <a class="btn btn-primary" href="#contact">Get a Consultation</a>
-                      <a class="btn btn-outline" href="#projects">See Projects</a>
+                      <a class="btn btn-outline" href="#equipment-videowalls">Browse Category</a>
                     </div>
                   </div>
                 </article>
@@ -365,7 +364,7 @@
                     </p>
                     <div class="carousel-actions">
                       <a class="btn btn-primary" href="#contact">Plan My Setup</a>
-                      <a class="btn btn-outline" href="#industries">Residential</a>
+                      <a class="btn btn-outline" href="#equipment-audio">Browse Audio</a>
                     </div>
                   </div>
                 </article>
@@ -381,7 +380,7 @@
                     </p>
                     <div class="carousel-actions">
                       <a class="btn btn-primary" href="#contact">Talk to an Expert</a>
-                      <a class="btn btn-outline" href="#process">Our Process</a>
+                      <a class="btn btn-outline" href="#equipment-signal">Signal &amp; Routing</a>
                     </div>
                   </div>
                 </article>
@@ -389,13 +388,52 @@
             </div>
 
             <div class="carousel-controls">
-              <div class="carousel-dots" role="tablist" aria-label="Choose slide">
-                <button class="dot is-active" type="button" aria-label="Go to slide 1" aria-selected="true"></button>
-                <button class="dot" type="button" aria-label="Go to slide 2" aria-selected="false"></button>
-                <button class="dot" type="button" aria-label="Go to slide 3" aria-selected="false"></button>
-                <button class="dot" type="button" aria-label="Go to slide 4" aria-selected="false"></button>
+              <div class="container">
+                <div class="carousel-dots" role="tablist" aria-label="Choose slide">
+                  <button class="dot is-active" type="button" aria-label="Go to slide 1" aria-selected="true"></button>
+                  <button class="dot" type="button" aria-label="Go to slide 2" aria-selected="false"></button>
+                  <button class="dot" type="button" aria-label="Go to slide 3" aria-selected="false"></button>
+                  <button class="dot" type="button" aria-label="Go to slide 4" aria-selected="false"></button>
+                </div>
               </div>
             </div>
+          </div>
+      </section>
+
+      <section class="promo-strip" aria-label="Quick highlight">
+        <div class="container promo-inner">
+          <div class="promo-banner" role="img" aria-label="AV consultation and installation"></div>
+          <div class="promo-copy">
+            <strong>Need a fast recommendation?</strong>
+            <span>Share your room size and use-case — we’ll suggest the right setup.</span>
+            <a class="btn btn-primary" href="#contact">Get a Quote</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="category-tiles" aria-label="Shop by category">
+        <div class="container">
+          <div class="tiles">
+            <a class="tile" href="#equipment-displays">
+              <div class="tile-img t1" aria-hidden="true"></div>
+              <div class="tile-band">Projectors</div>
+            </a>
+            <a class="tile" href="#equipment-videowalls">
+              <div class="tile-img t2" aria-hidden="true"></div>
+              <div class="tile-band">Video Walls</div>
+            </a>
+            <a class="tile" href="#equipment-mics">
+              <div class="tile-img t3" aria-hidden="true"></div>
+              <div class="tile-band">Microphones</div>
+            </a>
+            <a class="tile" href="#equipment-conf">
+              <div class="tile-img t4" aria-hidden="true"></div>
+              <div class="tile-band">Conference</div>
+            </a>
+            <a class="tile" href="#equipment-control">
+              <div class="tile-img t5" aria-hidden="true"></div>
+              <div class="tile-band">Control</div>
+            </a>
           </div>
         </div>
       </section>
