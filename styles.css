@@ -310,8 +310,9 @@ a {
   top: 50%;
   transform: translateY(-50%);
   z-index: 3;
-  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.18);
-  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.14);
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.45);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
