@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260203-2" />
+    <link rel="stylesheet" href="styles.css?v=20260203-3" />
   </head>
   <body>
     <header class="site-header">
@@ -31,8 +31,8 @@
       </div>
     </header>
 
-    <div class="drawer-overlay" hidden></div>
-    <aside class="side-drawer" id="side-drawer" aria-label="Browse by category" hidden>
+    <div class="drawer-overlay" aria-hidden="true"></div>
+    <aside class="side-drawer" id="side-drawer" aria-label="Browse by category" aria-hidden="true">
       <div class="drawer-header">
         <div class="drawer-title">
           <span class="drawer-eyebrow">Browse by category</span>
@@ -161,15 +161,19 @@
 
       const setDrawerOpen = (open) => {
         if (!drawer || !overlay || !menuToggle) return;
-        drawer.hidden = !open;
-        overlay.hidden = !open;
+        document.documentElement.classList.toggle("drawer-open", open);
         document.body.classList.toggle("no-scroll", open);
         menuToggle.classList.toggle("open", open);
         menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+        drawer.setAttribute("aria-hidden", open ? "false" : "true");
+        overlay.setAttribute("aria-hidden", open ? "false" : "true");
       };
 
       if (menuToggle && drawer && overlay && closeBtn) {
-        menuToggle.addEventListener("click", () => setDrawerOpen(drawer.hidden));
+        menuToggle.addEventListener("click", () => {
+          const isOpen = document.documentElement.classList.contains("drawer-open");
+          setDrawerOpen(!isOpen);
+        });
         closeBtn.addEventListener("click", () => setDrawerOpen(false));
         overlay.addEventListener("click", () => setDrawerOpen(false));
         document.addEventListener("keydown", (e) => {
