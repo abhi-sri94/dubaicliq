@@ -149,14 +149,14 @@ a {
   top: 0;
   left: 0;
   right: auto;
-  width: min(92vw, 380px);
+  width: min(92vw, 980px);
   height: 100vh;
   background: #fff;
   z-index: 80;
   box-shadow: 0 30px 80px rgba(15, 23, 42, 0.28);
   border-right: 1px solid var(--border);
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto 1fr;
   transform: translateX(-100%);
   transition: transform 200ms ease;
 }
@@ -170,6 +170,178 @@ html.drawer-open .side-drawer {
   left: 0;
   right: auto;
   transform: translateX(0);
+}
+
+.side-drawer.mega .drawer-footer {
+  display: none;
+}
+
+.mega-body {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: calc(100vh - 70px);
+}
+
+.mega-cats {
+  border-right: 1px solid var(--border);
+  background: rgba(238, 241, 247, 0.7);
+  padding: 6px 0;
+}
+
+.drawer-cat-btn {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 16px;
+  border: none;
+  border-bottom: 1px solid rgba(221, 226, 238, 0.8);
+  background: transparent;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.drawer-cat-btn:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.drawer-cat-btn.is-active {
+  background: #ffffff;
+  color: var(--primary-dark);
+}
+
+.mega-panel {
+  padding: 16px 18px;
+  overflow: auto;
+}
+
+.drawer-panel {
+  display: none;
+  gap: 18px;
+}
+
+.drawer-panel.is-active {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  align-items: start;
+}
+
+.panel-cols {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(160px, 1fr));
+  gap: 18px;
+}
+
+.panel-cols h4 {
+  margin: 0 0 10px;
+  font-size: 0.95rem;
+}
+
+.panel-cols a {
+  display: block;
+  padding: 8px 0;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.panel-cols a:hover {
+  color: var(--text);
+}
+
+.panel-promo {
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  padding: 16px;
+  background-size: cover;
+  background-position: center;
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.14);
+  position: relative;
+  overflow: hidden;
+}
+
+.panel-promo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(255, 255, 255, 0.78) 60%,
+    rgba(255, 255, 255, 0.7) 100%
+  );
+}
+
+.panel-promo > * {
+  position: relative;
+  z-index: 1;
+}
+
+.panel-promo span {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.panel-promo strong {
+  font-size: 1.2rem;
+}
+
+.promo-one {
+  background-image: url("https://images.unsplash.com/photo-1521543387600-2f77e74e0a36?auto=format&fit=crop&w=900&q=70");
+}
+.promo-two {
+  background-image: url("https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=900&q=70");
+}
+.promo-three {
+  background-image: url("https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=900&q=70");
+}
+.promo-four {
+  background-image: url("https://images.unsplash.com/photo-1587614382346-ac8c3a1a7f1b?auto=format&fit=crop&w=900&q=70");
+}
+.promo-five {
+  background-image: url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=70");
+}
+.promo-six {
+  background-image: url("https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&w=900&q=70");
+}
+.promo-seven {
+  background-image: url("https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?auto=format&fit=crop&w=900&q=70");
+}
+
+@media (max-width: 900px) {
+  .side-drawer {
+    width: min(92vw, 420px);
+    grid-template-rows: auto 1fr auto;
+  }
+
+  .side-drawer.mega .drawer-footer {
+    display: grid;
+  }
+
+  .mega-body {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .mega-cats {
+    border-right: none;
+  }
+
+  .drawer-panel.is-active {
+    grid-template-columns: 1fr;
+  }
+
+  .panel-cols {
+    grid-template-columns: 1fr;
+  }
 }
 
 .drawer-header {

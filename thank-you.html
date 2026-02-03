@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260203-6" />
+    <link rel="stylesheet" href="styles.css?v=20260203-7" />
   </head>
   <body>
     <header class="site-header">
@@ -32,7 +32,7 @@
     </header>
 
     <div class="drawer-overlay" aria-hidden="true"></div>
-    <aside class="side-drawer" id="side-drawer" aria-label="Browse by category" aria-hidden="true">
+    <aside class="side-drawer mega" id="side-drawer" aria-label="Browse by category" aria-hidden="true">
       <div class="drawer-header">
         <div class="drawer-title">
           <span class="drawer-eyebrow">Browse by category</span>
@@ -40,18 +40,235 @@
         </div>
         <button class="drawer-close" type="button" aria-label="Close menu">×</button>
       </div>
-      <nav class="drawer-list" aria-label="Sidebar navigation">
-        <a class="drawer-item" href="index.html#equipment-displays"><span>Projectors &amp; Displays</span><span class="chev">›</span></a>
-        <a class="drawer-item" href="index.html#equipment-videowalls"><span>Video Walls &amp; Signage</span><span class="chev">›</span></a>
-        <a class="drawer-item" href="index.html#equipment-audio"><span>Speakers &amp; Audio Processing</span><span class="chev">›</span></a>
-        <a class="drawer-item" href="index.html#equipment-mics"><span>Microphones &amp; Wireless</span><span class="chev">›</span></a>
-        <a class="drawer-item" href="index.html#equipment-conf"><span>Conference Room Systems</span><span class="chev">›</span></a>
-        <a class="drawer-item" href="index.html#equipment-control"><span>Control &amp; Automation</span><span class="chev">›</span></a>
-        <a class="drawer-item" href="index.html#equipment-signal"><span>Signal Distribution (HDMI/AVoIP)</span><span class="chev">›</span></a>
-        <a class="drawer-item" href="index.html#equipment-accessories"><span>Racks, Power &amp; Accessories</span><span class="chev">›</span></a>
-        <a class="drawer-item" href="privacy.html"><span>Privacy Policy</span><span class="chev">›</span></a>
-        <a class="drawer-item" href="terms.html"><span>Terms</span><span class="chev">›</span></a>
-      </nav>
+      <div class="mega-body">
+        <div class="mega-cats" role="listbox" aria-label="Equipment categories">
+          <button class="drawer-cat-btn" type="button" data-category="displays">
+            <span>Projectors &amp; Displays</span><span class="chev">›</span>
+          </button>
+          <button class="drawer-cat-btn" type="button" data-category="videowalls">
+            <span>Video Walls &amp; Signage</span><span class="chev">›</span>
+          </button>
+          <button class="drawer-cat-btn" type="button" data-category="audio">
+            <span>Audio</span><span class="chev">›</span>
+          </button>
+          <button class="drawer-cat-btn" type="button" data-category="conference">
+            <span>Conference Rooms</span><span class="chev">›</span>
+          </button>
+          <button class="drawer-cat-btn" type="button" data-category="control">
+            <span>Control &amp; Automation</span><span class="chev">›</span>
+          </button>
+          <button class="drawer-cat-btn" type="button" data-category="signal">
+            <span>Signal Distribution</span><span class="chev">›</span>
+          </button>
+          <button class="drawer-cat-btn" type="button" data-category="racks">
+            <span>Racks, Power &amp; Accessories</span><span class="chev">›</span>
+          </button>
+          <a class="drawer-item" href="privacy.html" style="border-bottom: none">
+            <span>Privacy Policy</span><span class="chev">›</span>
+          </a>
+          <a class="drawer-item" href="terms.html" style="border-bottom: none">
+            <span>Terms</span><span class="chev">›</span>
+          </a>
+        </div>
+
+        <div class="mega-panel" aria-label="Subcategories">
+          <div class="drawer-panel" data-panel="displays">
+            <div class="panel-cols">
+              <div>
+                <h4>Projectors</h4>
+                <a href="index.html#equipment-displays">Laser projectors</a>
+                <a href="index.html#equipment-displays">Short-throw / UST</a>
+                <a href="index.html#equipment-displays">Installation &amp; calibration</a>
+              </div>
+              <div>
+                <h4>Displays</h4>
+                <a href="index.html#equipment-displays">Commercial screens</a>
+                <a href="index.html#equipment-displays">Interactive displays</a>
+                <a href="index.html#equipment-displays">Mounts &amp; brackets</a>
+              </div>
+              <div>
+                <h4>Quick links</h4>
+                <a href="index.html#contact">Get a quote</a>
+                <a href="index.html#equipment">All equipment</a>
+                <a href="index.html#process">Process</a>
+              </div>
+            </div>
+            <div class="panel-promo promo-one">
+              <span>Need help?</span>
+              <strong>Tell us your space</strong>
+              <a class="btn btn-primary" href="index.html#contact">Request a Quote</a>
+            </div>
+          </div>
+
+          <div class="drawer-panel" data-panel="videowalls">
+            <div class="panel-cols">
+              <div>
+                <h4>Video Walls</h4>
+                <a href="index.html#equipment-videowalls">LCD video walls</a>
+                <a href="index.html#equipment-videowalls">LED walls</a>
+                <a href="index.html#equipment-videowalls">Controllers</a>
+              </div>
+              <div>
+                <h4>Signage</h4>
+                <a href="index.html#equipment-videowalls">Media players</a>
+                <a href="index.html#equipment-videowalls">Content distribution</a>
+                <a href="index.html#equipment-videowalls">Maintenance</a>
+              </div>
+              <div>
+                <h4>Quick links</h4>
+                <a href="index.html#contact">Get a quote</a>
+                <a href="index.html#equipment">All equipment</a>
+                <a href="index.html#solutions">Solutions</a>
+              </div>
+            </div>
+            <div class="panel-promo promo-two">
+              <span>Video walls</span>
+              <strong>High impact</strong>
+              <a class="btn btn-primary" href="index.html#contact">Enquire</a>
+            </div>
+          </div>
+
+          <div class="drawer-panel" data-panel="audio">
+            <div class="panel-cols">
+              <div>
+                <h4>Speakers</h4>
+                <a href="index.html#equipment-audio">Ceiling speakers</a>
+                <a href="index.html#equipment-audio">Outdoor audio</a>
+                <a href="index.html#equipment-audio">Zoning</a>
+              </div>
+              <div>
+                <h4>Microphones</h4>
+                <a href="index.html#equipment-mics">Wireless systems</a>
+                <a href="index.html#equipment-mics">Boundary mics</a>
+                <a href="index.html#equipment-mics">Lapel mics</a>
+              </div>
+              <div>
+                <h4>Quick links</h4>
+                <a href="index.html#contact">Get a quote</a>
+                <a href="index.html#equipment">All equipment</a>
+                <a href="index.html#what-we-do">What we do</a>
+              </div>
+            </div>
+            <div class="panel-promo promo-three">
+              <span>Audio</span>
+              <strong>Tuned to the room</strong>
+              <a class="btn btn-primary" href="index.html#contact">Get Advice</a>
+            </div>
+          </div>
+
+          <div class="drawer-panel" data-panel="conference">
+            <div class="panel-cols">
+              <div>
+                <h4>Video conferencing</h4>
+                <a href="index.html#equipment-conf">Cameras</a>
+                <a href="index.html#equipment-conf">Speakerphones</a>
+                <a href="index.html#equipment-control">Scheduling panels</a>
+              </div>
+              <div>
+                <h4>Room types</h4>
+                <a href="index.html#solutions">Huddle rooms</a>
+                <a href="index.html#solutions">Boardrooms</a>
+                <a href="index.html#solutions">Training rooms</a>
+              </div>
+              <div>
+                <h4>Quick links</h4>
+                <a href="index.html#contact">Get a quote</a>
+                <a href="index.html#equipment">All equipment</a>
+                <a href="index.html#process">Process</a>
+              </div>
+            </div>
+            <div class="panel-promo promo-four">
+              <span>Meeting rooms</span>
+              <strong>Meet better</strong>
+              <a class="btn btn-primary" href="index.html#contact">Request a Quote</a>
+            </div>
+          </div>
+
+          <div class="drawer-panel" data-panel="control">
+            <div class="panel-cols">
+              <div>
+                <h4>Control</h4>
+                <a href="index.html#equipment-control">Touch panels</a>
+                <a href="index.html#equipment-control">Room presets</a>
+                <a href="index.html#equipment-control">Monitoring</a>
+              </div>
+              <div>
+                <h4>Automation</h4>
+                <a href="index.html#solutions">Lighting scenes</a>
+                <a href="index.html#solutions">Smart home</a>
+                <a href="index.html#equipment-signal">AVoIP switching</a>
+              </div>
+              <div>
+                <h4>Quick links</h4>
+                <a href="index.html#contact">Get a quote</a>
+                <a href="index.html#equipment">All equipment</a>
+                <a href="index.html#principles">Why us</a>
+              </div>
+            </div>
+            <div class="panel-promo promo-five">
+              <span>Automation</span>
+              <strong>Simple to use</strong>
+              <a class="btn btn-primary" href="index.html#contact">Enquire</a>
+            </div>
+          </div>
+
+          <div class="drawer-panel" data-panel="signal">
+            <div class="panel-cols">
+              <div>
+                <h4>HDMI</h4>
+                <a href="index.html#equipment-signal">Extenders</a>
+                <a href="index.html#equipment-signal">Matrices</a>
+                <a href="index.html#equipment-signal">Switchers</a>
+              </div>
+              <div>
+                <h4>AVoIP</h4>
+                <a href="index.html#equipment-signal">Encoders/decoders</a>
+                <a href="index.html#equipment-signal">Network design</a>
+                <a href="index.html#equipment-signal">Multicast setup</a>
+              </div>
+              <div>
+                <h4>Quick links</h4>
+                <a href="index.html#contact">Get a quote</a>
+                <a href="index.html#equipment">All equipment</a>
+                <a href="index.html#process">Process</a>
+              </div>
+            </div>
+            <div class="panel-promo promo-six">
+              <span>Signal</span>
+              <strong>Clean routing</strong>
+              <a class="btn btn-primary" href="index.html#contact">Talk to us</a>
+            </div>
+          </div>
+
+          <div class="drawer-panel" data-panel="racks">
+            <div class="panel-cols">
+              <div>
+                <h4>Racks</h4>
+                <a href="index.html#equipment-accessories">Floor racks</a>
+                <a href="index.html#equipment-accessories">Wall racks</a>
+                <a href="index.html#equipment-accessories">Cable management</a>
+              </div>
+              <div>
+                <h4>Power</h4>
+                <a href="index.html#equipment-accessories">UPS</a>
+                <a href="index.html#equipment-accessories">Power conditioning</a>
+                <a href="index.html#equipment-accessories">Surge protection</a>
+              </div>
+              <div>
+                <h4>Quick links</h4>
+                <a href="index.html#contact">Get a quote</a>
+                <a href="index.html#equipment">All equipment</a>
+                <a href="index.html#principles">Why us</a>
+              </div>
+            </div>
+            <div class="panel-promo promo-seven">
+              <span>Racks</span>
+              <strong>Neat builds</strong>
+              <a class="btn btn-primary" href="index.html#contact">Enquire</a>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="drawer-footer">
         <a class="btn btn-primary" href="https://wa.me/971509876683" target="_blank" rel="noreferrer">WhatsApp</a>
         <a class="btn btn-outline" href="tel:+971509876683">Call</a>
@@ -107,83 +324,7 @@
       </div>
     </footer>
 
-    <script>
-      const raw = sessionStorage.getItem("dubaicliq_lead");
-      const preview = document.getElementById("lead-preview");
-      const wa = document.getElementById("send-whatsapp");
-      const email = document.getElementById("send-email");
-
-      const phone = "971509876683";
-      const toEmail = "hello@dubaicliq.com";
-
-      if (raw) {
-        try {
-          const lead = JSON.parse(raw);
-          const name = (lead.name || "").trim();
-          const fromEmail = (lead.email || "").trim();
-          const project = (lead.project || "").trim();
-          const message = (lead.message || "").trim();
-
-          const textLines = [
-            "Hi Dubaicliq, I'd like to enquire about an AV project.",
-            "",
-            `Name: ${name || "-"}`,
-            `Email: ${fromEmail || "-"}`,
-            `Project: ${project || "-"}`,
-            "",
-            "Message:",
-            message || "-",
-          ];
-          const text = textLines.join("\n");
-
-          const waUrl = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
-          wa.setAttribute("href", waUrl);
-
-          const subject = encodeURIComponent(`Website enquiry - ${project || "AV Project"}`);
-          const body = encodeURIComponent(text);
-          const mailto = `mailto:${toEmail}?subject=${subject}&body=${body}`;
-          email.setAttribute("href", mailto);
-
-          if (preview) {
-            preview.textContent = `Preview: ${name || "Name"} • ${project || "Project"} • ${fromEmail || "Email"}`;
-          }
-        } catch (_) {
-          // ignore
-        }
-      }
-    </script>
-
-    <script>
-      const menuToggle = document.querySelector(".menu-toggle");
-      const drawer = document.querySelector(".side-drawer");
-      const overlay = document.querySelector(".drawer-overlay");
-      const closeBtn = document.querySelector(".drawer-close");
-
-      const setDrawerOpen = (open) => {
-        if (!drawer || !overlay || !menuToggle) return;
-        document.documentElement.classList.toggle("drawer-open", open);
-        document.body.classList.toggle("no-scroll", open);
-        menuToggle.classList.toggle("open", open);
-        menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
-        drawer.setAttribute("aria-hidden", open ? "false" : "true");
-        overlay.setAttribute("aria-hidden", open ? "false" : "true");
-      };
-
-      if (menuToggle && drawer && overlay && closeBtn) {
-        menuToggle.addEventListener("click", () => {
-          const isOpen = document.documentElement.classList.contains("drawer-open");
-          setDrawerOpen(!isOpen);
-        });
-        closeBtn.addEventListener("click", () => setDrawerOpen(false));
-        overlay.addEventListener("click", () => setDrawerOpen(false));
-        document.addEventListener("keydown", (e) => {
-          if (e.key === "Escape") setDrawerOpen(false);
-        });
-        drawer.querySelectorAll("a").forEach((a) => {
-          a.addEventListener("click", () => setDrawerOpen(false));
-        });
-      }
-    </script>
+    <script src="app.js?v=20260203-1" defer></script>
   </body>
 </html>
 
