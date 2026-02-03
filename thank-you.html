@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dubaicliq | Thank You</title>
+    <meta name="description" content="Thank you for contacting Dubaicliq." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="index.html">
+          <span class="logo-mark">DC</span>
+          <span class="logo-text">Dubaicliq</span>
+        </a>
+        <nav class="nav" aria-label="Primary">
+          <a href="index.html#contact" class="btn btn-outline">Back to Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container simple-page">
+      <div class="simple-card">
+        <p class="eyebrow">Thank you</p>
+        <h1>We’ve prepared your enquiry.</h1>
+        <p class="section-lead">
+          Choose how you’d like to send it. WhatsApp is the fastest option.
+        </p>
+
+        <div class="hero-actions" style="margin-top: 16px">
+          <a id="send-whatsapp" class="btn btn-primary" href="https://wa.me/971509876683" target="_blank" rel="noreferrer">
+            Send via WhatsApp
+          </a>
+          <a id="send-email" class="btn btn-outline" href="mailto:hello@dubaicliq.com">
+            Send via Email
+          </a>
+          <a class="btn btn-ghost" href="index.html">Home</a>
+        </div>
+
+        <p id="lead-preview" style="margin-top: 16px; color: var(--muted)"></p>
+        <p style="margin-top: 10px; color: var(--muted)">
+          Tip: If you don’t see your details here, go back and submit the form again.
+        </p>
+      </div>
+    </main>
+
+    <a
+      class="fab-whatsapp"
+      href="https://wa.me/971509876683?text=Hi%20Dubaicliq%2C%20I%27d%20like%20to%20enquire%20about%20an%20AV%20project."
+      target="_blank"
+      rel="noreferrer"
+      aria-label="Chat with us on WhatsApp"
+    >
+      WA
+    </a>
+
+    <footer class="site-footer">
+      <div class="container footer-bottom">
+        <span>© 2026 Dubaicliq. All rights reserved.</span>
+        <span>
+          <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a>
+        </span>
+      </div>
+    </footer>
+
+    <script>
+      const raw = sessionStorage.getItem("dubaicliq_lead");
+      const preview = document.getElementById("lead-preview");
+      const wa = document.getElementById("send-whatsapp");
+      const email = document.getElementById("send-email");
+
+      const phone = "971509876683";
+      const toEmail = "hello@dubaicliq.com";
+
+      if (raw) {
+        try {
+          const lead = JSON.parse(raw);
+          const name = (lead.name || "").trim();
+          const fromEmail = (lead.email || "").trim();
+          const project = (lead.project || "").trim();
+          const message = (lead.message || "").trim();
+
+          const textLines = [
+            "Hi Dubaicliq, I'd like to enquire about an AV project.",
+            "",
+            `Name: ${name || "-"}`,
+            `Email: ${fromEmail || "-"}`,
+            `Project: ${project || "-"}`,
+            "",
+            "Message:",
+            message || "-",
+          ];
+          const text = textLines.join("\n");
+
+          const waUrl = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+          wa.setAttribute("href", waUrl);
+
+          const subject = encodeURIComponent(`Website enquiry - ${project || "AV Project"}`);
+          const body = encodeURIComponent(text);
+          const mailto = `mailto:${toEmail}?subject=${subject}&body=${body}`;
+          email.setAttribute("href", mailto);
+
+          if (preview) {
+            preview.textContent = `Preview: ${name || "Name"} • ${project || "Project"} • ${fromEmail || "Email"}`;
+          }
+        } catch (_) {
+          // ignore
+        }
+      }
+    </script>
+  </body>
+</html>
+
