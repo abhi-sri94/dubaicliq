@@ -229,15 +229,22 @@ a {
   transform: scale(1.02);
 }
 
+.carousel-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.12);
+}
+
 .carousel-slide::before {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
       90deg,
-      rgba(255, 255, 255, 0.96) 0%,
-      rgba(255, 255, 255, 0.9) 52%,
-      rgba(255, 255, 255, 0.45) 100%
+      rgba(255, 255, 255, 0.975) 0%,
+      rgba(255, 255, 255, 0.94) 58%,
+      rgba(255, 255, 255, 0.62) 100%
     ),
     radial-gradient(circle at left, rgba(29, 78, 216, 0.12) 0%, transparent 55%);
 }
@@ -246,6 +253,12 @@ a {
   position: relative;
   z-index: 1;
   max-width: 560px;
+  padding: 18px 18px 18px 18px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(221, 226, 238, 0.7);
 }
 
 .carousel-content h2 {
