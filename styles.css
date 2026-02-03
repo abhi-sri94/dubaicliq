@@ -565,15 +565,6 @@ section[id] {
   color: var(--accent);
 }
 
-.brand-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 12px;
-  text-align: center;
-  font-weight: 600;
-  color: var(--muted);
-}
-
 .testimonials .quote {
   background: var(--card);
   padding: 22px;
