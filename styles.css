@@ -56,12 +56,18 @@ a {
   background: rgba(246, 247, 251, 0.92);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
+  transition: transform 200ms ease;
+  will-change: transform;
 }
 
 .site-header.emax {
   background: #0b0f17;
   backdrop-filter: none;
   border-bottom: none;
+}
+
+.site-header.is-hidden {
+  transform: translateY(calc(-1 * var(--header-hide, 0px)));
 }
 
 .header-top {

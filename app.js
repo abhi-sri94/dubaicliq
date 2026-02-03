@@ -25,6 +25,67 @@ function qsa(sel, root = document) {
   });
 })();
 
+// Auto-hide header on scroll down, show on scroll up (saves vertical space).
+(function autoHideHeader() {
+  const header = qs(".site-header");
+  if (!header) return;
+
+  let lastY = window.pageYOffset || 0;
+  let ticking = false;
+
+  const update = () => {
+    const y = window.pageYOffset || 0;
+    const delta = y - lastY;
+
+    // Don't hide at the very top.
+    if (y < 20) {
+      header.classList.remove("is-hidden");
+      header.style.setProperty("--header-hide", "0px");
+      lastY = y;
+      ticking = false;
+      return;
+    }
+
+    // If the drawer is open, keep header visible.
+    if (document.documentElement.classList.contains("drawer-open")) {
+      header.classList.remove("is-hidden");
+      header.style.setProperty("--header-hide", "0px");
+      lastY = y;
+      ticking = false;
+      return;
+    }
+
+    // Compute hide distance from current header height.
+    const h = header.offsetHeight || 0;
+    header.style.setProperty("--header-hide", `${h}px`);
+
+    // Small jitters shouldn't toggle.
+    if (Math.abs(delta) > 6) {
+      if (delta > 0) {
+        // scrolling down -> hide
+        header.classList.add("is-hidden");
+      } else {
+        // scrolling up -> show
+        header.classList.remove("is-hidden");
+      }
+    }
+
+    lastY = y;
+    ticking = false;
+  };
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!ticking) {
+        window.requestAnimationFrame(update);
+        ticking = true;
+      }
+    },
+    { passive: true }
+  );
+})();
+
 // Drawer (hamburger) + mega categories behavior
 (function initDrawer() {
   const menuToggle = qs(".menu-toggle");
