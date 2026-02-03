@@ -593,6 +593,16 @@ section[id] {
   color: #bae6fd;
 }
 
+.cta .section-lead {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.cta h2,
+.cta .section-lead,
+.contact-links a {
+  text-shadow: 0 2px 14px rgba(15, 23, 42, 0.35);
+}
+
 .contact-links {
   display: grid;
   gap: 6px;
@@ -601,7 +611,7 @@ section[id] {
 }
 
 .contact-links a {
-  color: #e2e8f0;
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .cta-form {
