@@ -10,16 +10,16 @@ html {
 
 :root {
   color-scheme: light;
-  --bg: #ffffff;
-  --bg-alt: #f3f4f6;
-  --text: #111827;
-  --muted: #6b7280;
-  --primary: #e11d2e;
-  --primary-dark: #b91c1c;
-  --accent: #111827;
+  --bg: #f6f7fb;
+  --bg-alt: #eef1f7;
+  --text: #0f172a;
+  --muted: #5b6476;
+  --primary: #1d4ed8;
+  --primary-dark: #1e3a8a;
+  --accent: #0ea5e9;
   --card: #ffffff;
-  --border: #e5e7eb;
-  --shadow: 0 18px 45px rgba(17, 24, 39, 0.12);
+  --border: #dde2ee;
+  --shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
 }
 
 body {
@@ -49,7 +49,8 @@ a {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: #fff;
+  background: rgba(246, 247, 251, 0.92);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
 }
 
@@ -104,8 +105,8 @@ a {
 .logo-mark {
   width: 40px;
   height: 40px;
-  border-radius: 10px;
-  background: var(--primary);
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
   display: grid;
   place-items: center;
   color: #fff;
@@ -196,7 +197,7 @@ a {
 .btn-primary {
   background: var(--primary);
   color: #fff;
-  box-shadow: 0 14px 28px rgba(225, 29, 46, 0.28);
+  box-shadow: 0 12px 30px rgba(29, 78, 216, 0.25);
 }
 
 .btn-primary:hover {
@@ -211,12 +212,14 @@ a {
 
 .btn-ghost {
   border-color: transparent;
-  color: var(--accent);
+  color: var(--primary);
 }
 
 .hero {
   padding: 80px 0 60px;
-  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  background: radial-gradient(circle at top left, #dbeafe 0%, transparent 55%),
+    radial-gradient(circle at top right, #cffafe 0%, transparent 45%),
+    var(--bg);
 }
 
 .hero-grid {
@@ -272,7 +275,7 @@ a {
 
 .hero-card {
   background: var(--card);
-  border-radius: 16px;
+  border-radius: 24px;
   padding: 26px;
   box-shadow: var(--shadow);
   border: 1px solid var(--border);
@@ -285,9 +288,9 @@ a {
 
 .card {
   padding: 16px 18px;
-  border-radius: 12px;
-  background: #fff;
-  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--bg-alt);
+  border: none;
 }
 
 .card h3 {
@@ -303,7 +306,7 @@ a {
   margin-top: 16px;
   text-align: center;
   font-size: 0.9rem;
-  color: var(--muted);
+  color: var(--primary-dark);
   font-weight: 600;
 }
 
@@ -316,7 +319,7 @@ section[id] {
 }
 
 .section.alt {
-  background: #f9fafb;
+  background: #fff;
 }
 
 .section-heading {
@@ -346,7 +349,7 @@ section[id] {
 
 .panel {
   background: var(--card);
-  border-radius: 14px;
+  border-radius: 18px;
   padding: 22px;
   border: 1px solid var(--border);
 }
@@ -364,9 +367,9 @@ section[id] {
 }
 
 .industry-card {
-  background: #fff;
+  background: var(--bg);
   padding: 20px;
-  border-radius: 14px;
+  border-radius: 16px;
   border: 1px solid var(--border);
 }
 
@@ -421,7 +424,7 @@ section[id] {
 .step {
   background: var(--card);
   padding: 18px 22px;
-  border-radius: 14px;
+  border-radius: 16px;
   border: 1px solid var(--border);
   display: grid;
   gap: 6px;
@@ -429,7 +432,7 @@ section[id] {
 
 .step span {
   font-weight: 700;
-  color: var(--primary);
+  color: var(--accent);
 }
 
 .brand-row {
