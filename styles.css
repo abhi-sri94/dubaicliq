@@ -201,6 +201,7 @@ a {
 
 .carousel-viewport {
   overflow: hidden;
+  position: relative;
 }
 
 .carousel-track {
@@ -283,7 +284,7 @@ a {
 .carousel-controls {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 12px;
   padding: 14px 18px;
   background: rgba(246, 247, 251, 0.8);
@@ -302,6 +303,25 @@ a {
   color: var(--text);
   display: grid;
   place-items: center;
+}
+
+.carousel-btn.is-overlay {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.18);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.carousel-btn.is-overlay.prev {
+  left: 14px;
+}
+
+.carousel-btn.is-overlay.next {
+  right: 14px;
 }
 
 .carousel-btn:hover {
