@@ -60,6 +60,100 @@
     </header>
 
     <main id="top">
+      <section class="banner-slider" aria-label="Featured solutions">
+        <div class="container">
+          <div
+            class="carousel"
+            role="group"
+            aria-roledescription="carousel"
+            aria-label="Featured solutions carousel"
+          >
+            <div class="carousel-viewport">
+              <div class="carousel-track">
+                <article class="carousel-slide is-active" aria-label="Slide 1 of 4">
+                  <div class="carousel-media slide-media-one" aria-hidden="true"></div>
+                  <div class="carousel-content">
+                    <p class="eyebrow">Featured</p>
+                    <h2>Meeting Room &amp; Boardroom AV</h2>
+                    <p>
+                      Crystal-clear conferencing, wireless sharing, and intuitive
+                      room control—built for productive teams.
+                    </p>
+                    <div class="carousel-actions">
+                      <a class="btn btn-primary" href="#contact">Request a Quote</a>
+                      <a class="btn btn-outline" href="#solutions">View Solutions</a>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="carousel-slide" aria-label="Slide 2 of 4">
+                  <div class="carousel-media slide-media-two" aria-hidden="true"></div>
+                  <div class="carousel-content">
+                    <p class="eyebrow">Featured</p>
+                    <h2>Digital Signage &amp; Video Walls</h2>
+                    <p>
+                      High-impact displays for retail, hospitality, lobbies, and
+                      control rooms—engineered for reliability.
+                    </p>
+                    <div class="carousel-actions">
+                      <a class="btn btn-primary" href="#contact">Get a Consultation</a>
+                      <a class="btn btn-outline" href="#projects">See Projects</a>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="carousel-slide" aria-label="Slide 3 of 4">
+                  <div class="carousel-media slide-media-three" aria-hidden="true"></div>
+                  <div class="carousel-content">
+                    <p class="eyebrow">Featured</p>
+                    <h2>Home Cinema &amp; Multi-room Audio</h2>
+                    <p>
+                      Premium entertainment experiences with clean wiring, elegant
+                      control, and room-tuned sound.
+                    </p>
+                    <div class="carousel-actions">
+                      <a class="btn btn-primary" href="#contact">Plan My Setup</a>
+                      <a class="btn btn-outline" href="#industries">Residential</a>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="carousel-slide" aria-label="Slide 4 of 4">
+                  <div class="carousel-media slide-media-four" aria-hidden="true"></div>
+                  <div class="carousel-content">
+                    <p class="eyebrow">Featured</p>
+                    <h2>Broadcast &amp; Studio Integration</h2>
+                    <p>
+                      Production-grade routing, monitoring, and control workflows
+                      for live and recorded content.
+                    </p>
+                    <div class="carousel-actions">
+                      <a class="btn btn-primary" href="#contact">Talk to an Expert</a>
+                      <a class="btn btn-outline" href="#process">Our Process</a>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div class="carousel-controls">
+              <button class="carousel-btn prev" type="button" aria-label="Previous slide">
+                ‹
+              </button>
+              <div class="carousel-dots" role="tablist" aria-label="Choose slide">
+                <button class="dot is-active" type="button" aria-label="Go to slide 1" aria-selected="true"></button>
+                <button class="dot" type="button" aria-label="Go to slide 2" aria-selected="false"></button>
+                <button class="dot" type="button" aria-label="Go to slide 3" aria-selected="false"></button>
+                <button class="dot" type="button" aria-label="Go to slide 4" aria-selected="false"></button>
+              </div>
+              <button class="carousel-btn next" type="button" aria-label="Next slide">
+                ›
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="hero">
         <div class="container hero-grid">
           <div class="hero-copy">
@@ -435,7 +529,73 @@
         });
       }
 
-      // Smooth scrolling is handled by CSS. JS only handles menu toggling.
+      // Smooth scrolling is handled by CSS. JS handles menu + carousel.
+      const carousel = document.querySelector(".carousel");
+      if (carousel) {
+        const track = carousel.querySelector(".carousel-track");
+        const slides = Array.from(carousel.querySelectorAll(".carousel-slide"));
+        const dots = Array.from(carousel.querySelectorAll(".dot"));
+        const prevBtn = carousel.querySelector(".carousel-btn.prev");
+        const nextBtn = carousel.querySelector(".carousel-btn.next");
+
+        let index = 0;
+        let timerId = null;
+        const prefersReduced = window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+        const setActive = (i) => {
+          index = (i + slides.length) % slides.length;
+          if (track) {
+            track.style.transform = `translateX(${-index * 100}%)`;
+          }
+          slides.forEach((s, si) => s.classList.toggle("is-active", si === index));
+          dots.forEach((d, di) => {
+            const active = di === index;
+            d.classList.toggle("is-active", active);
+            d.setAttribute("aria-selected", active ? "true" : "false");
+          });
+        };
+
+        const next = () => setActive(index + 1);
+        const prev = () => setActive(index - 1);
+
+        const start = () => {
+          if (prefersReduced || timerId) return;
+          timerId = window.setInterval(next, 6500);
+        };
+        const stop = () => {
+          if (!timerId) return;
+          window.clearInterval(timerId);
+          timerId = null;
+        };
+
+        prevBtn?.addEventListener("click", () => {
+          stop();
+          prev();
+          start();
+        });
+        nextBtn?.addEventListener("click", () => {
+          stop();
+          next();
+          start();
+        });
+        dots.forEach((dot, i) => {
+          dot.addEventListener("click", () => {
+            stop();
+            setActive(i);
+            start();
+          });
+        });
+
+        carousel.addEventListener("mouseenter", stop);
+        carousel.addEventListener("mouseleave", start);
+        carousel.addEventListener("focusin", stop);
+        carousel.addEventListener("focusout", start);
+
+        setActive(0);
+        start();
+      }
     </script>
   </body>
 </html>
