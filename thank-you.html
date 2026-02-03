@@ -23,8 +23,35 @@
         <nav class="nav" aria-label="Primary">
           <a href="index.html#contact" class="btn btn-outline">Back to Contact</a>
         </nav>
+        <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="side-drawer">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </header>
+
+    <div class="drawer-overlay" hidden></div>
+    <aside class="side-drawer" id="side-drawer" aria-label="Browse categories" hidden>
+      <div class="drawer-header">
+        <div class="drawer-title">
+          <span class="drawer-eyebrow">Browse</span>
+          <strong>Categories</strong>
+        </div>
+        <button class="drawer-close" type="button" aria-label="Close menu">×</button>
+      </div>
+      <nav class="drawer-list" aria-label="Sidebar navigation">
+        <a class="drawer-item" href="index.html#solutions"><span>Solutions</span><span class="chev">›</span></a>
+        <a class="drawer-item" href="index.html#industries"><span>Industries</span><span class="chev">›</span></a>
+        <a class="drawer-item" href="index.html#contact"><span>Get a Quote</span><span class="chev">›</span></a>
+        <a class="drawer-item" href="privacy.html"><span>Privacy Policy</span><span class="chev">›</span></a>
+        <a class="drawer-item" href="terms.html"><span>Terms</span><span class="chev">›</span></a>
+      </nav>
+      <div class="drawer-footer">
+        <a class="btn btn-primary" href="https://wa.me/971509876683" target="_blank" rel="noreferrer">WhatsApp</a>
+        <a class="btn btn-outline" href="tel:+971509876683">Call</a>
+      </div>
+    </aside>
 
     <main class="container simple-page">
       <div class="simple-card">
@@ -118,6 +145,34 @@
         } catch (_) {
           // ignore
         }
+      }
+    </script>
+
+    <script>
+      const menuToggle = document.querySelector(".menu-toggle");
+      const drawer = document.querySelector(".side-drawer");
+      const overlay = document.querySelector(".drawer-overlay");
+      const closeBtn = document.querySelector(".drawer-close");
+
+      const setDrawerOpen = (open) => {
+        if (!drawer || !overlay || !menuToggle) return;
+        drawer.hidden = !open;
+        overlay.hidden = !open;
+        document.body.classList.toggle("no-scroll", open);
+        menuToggle.classList.toggle("open", open);
+        menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      };
+
+      if (menuToggle && drawer && overlay && closeBtn) {
+        menuToggle.addEventListener("click", () => setDrawerOpen(drawer.hidden));
+        closeBtn.addEventListener("click", () => setDrawerOpen(false));
+        overlay.addEventListener("click", () => setDrawerOpen(false));
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") setDrawerOpen(false);
+        });
+        drawer.querySelectorAll("a").forEach((a) => {
+          a.addEventListener("click", () => setDrawerOpen(false));
+        });
       }
     </script>
   </body>
