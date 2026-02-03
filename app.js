@@ -28,6 +28,7 @@ function qsa(sel, root = document) {
 // Drawer (hamburger) + mega categories behavior
 (function initDrawer() {
   const menuToggle = qs(".menu-toggle");
+  const allCategoriesBtn = qs(".all-categories-btn");
   const drawer = qs(".side-drawer");
   const overlay = qs(".drawer-overlay");
   const closeBtn = qs(".drawer-close");
@@ -59,6 +60,9 @@ function qsa(sel, root = document) {
     menuToggle.addEventListener("click", () => {
       const isOpen = document.documentElement.classList.contains("drawer-open");
       setDrawerOpen(!isOpen);
+    });
+    allCategoriesBtn?.addEventListener("click", () => {
+      setDrawerOpen(true);
     });
     closeBtn.addEventListener("click", () => setDrawerOpen(false));
     overlay.addEventListener("click", () => setDrawerOpen(false));
