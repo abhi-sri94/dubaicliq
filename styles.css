@@ -135,13 +135,13 @@ a {
 .side-drawer {
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
   width: min(92vw, 380px);
   height: 100vh;
   background: #fff;
   z-index: 80;
   box-shadow: 0 30px 80px rgba(15, 23, 42, 0.28);
-  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
   display: grid;
   grid-template-rows: auto 1fr auto;
   animation: drawerIn 180ms ease-out;
@@ -149,7 +149,7 @@ a {
 
 @keyframes drawerIn {
   from {
-    transform: translateX(12px);
+    transform: translateX(-12px);
     opacity: 0.5;
   }
   to {
