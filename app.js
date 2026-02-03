@@ -14,6 +14,8 @@ function qsa(sel, root = document) {
   const overlay = qs(".drawer-overlay");
   const closeBtn = qs(".drawer-close");
 
+  let resetMegaToDefault = null;
+
   const setDrawerOpen = (open) => {
     if (!drawer || !overlay || !menuToggle) return;
     document.documentElement.classList.toggle("drawer-open", open);
@@ -24,6 +26,10 @@ function qsa(sel, root = document) {
     overlay.setAttribute("aria-hidden", open ? "false" : "true");
 
     if (open) {
+      // Always reset to the first category when opening (eMax-style).
+      if (typeof resetMegaToDefault === "function") {
+        resetMegaToDefault();
+      }
       const firstCat = drawer.querySelector(".drawer-cat-btn");
       firstCat?.focus();
     } else {
@@ -67,7 +73,13 @@ function qsa(sel, root = document) {
     });
 
     const defaultKey = catButtons[0]?.dataset.category;
-    if (defaultKey) setActive(defaultKey);
+    resetMegaToDefault = () => {
+      if (!defaultKey) return;
+      setActive(defaultKey);
+      const megaPanel = drawer.querySelector(".mega-panel");
+      if (megaPanel) megaPanel.scrollTop = 0;
+    };
+    resetMegaToDefault();
 
     // Close drawer when clicking a real navigation link in panel
     qsa(".drawer-panel a", drawer).forEach((a) => {
