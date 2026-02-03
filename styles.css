@@ -54,39 +54,6 @@ a {
   border-bottom: 1px solid var(--border);
 }
 
-.topbar {
-  background: #0b1220;
-  color: #e5e7eb;
-  font-size: 0.85rem;
-}
-
-.topbar-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 10px 0;
-}
-
-.topbar-left,
-.topbar-right {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.topbar a {
-  color: #e5e7eb;
-  opacity: 0.95;
-}
-
-.topbar a:hover {
-  opacity: 1;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
 .header-inner {
   display: flex;
   align-items: center;
@@ -717,10 +684,6 @@ textarea:focus {
 
   .menu-toggle {
     display: inline-flex;
-  }
-
-  .topbar {
-    display: none;
   }
 
   .section-heading,
