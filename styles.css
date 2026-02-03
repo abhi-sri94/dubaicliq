@@ -552,6 +552,42 @@ section[id] {
   scroll-margin-top: 90px;
 }
 
+.equipment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.equipment-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 18px;
+  display: grid;
+  gap: 8px;
+  transition: transform 0.18s ease, border-color 0.18s ease;
+}
+
+.equipment-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(29, 78, 216, 0.35);
+}
+
+.equipment-card h3 {
+  margin: 0;
+}
+
+.equipment-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.equipment-cta {
+  margin-top: 4px;
+  color: var(--primary);
+  font-weight: 700;
+}
+
 .section.alt {
   background: #fff;
 }
