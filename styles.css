@@ -148,6 +148,7 @@ a {
   position: fixed;
   top: 0;
   left: 0;
+  right: auto;
   width: min(92vw, 380px);
   height: 100vh;
   background: #fff;
@@ -166,6 +167,8 @@ html.drawer-open .drawer-overlay {
 }
 
 html.drawer-open .side-drawer {
+  left: 0;
+  right: auto;
   transform: translateX(0);
 }
 
