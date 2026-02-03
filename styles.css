@@ -216,6 +216,7 @@ html.drawer-open .side-drawer {
 .mega-panel {
   padding: 16px 18px;
   overflow: auto;
+  overflow-x: hidden;
 }
 
 .drawer-panel {
@@ -233,6 +234,11 @@ html.drawer-open .side-drawer {
   display: grid;
   grid-template-columns: repeat(3, minmax(160px, 1fr));
   gap: 18px;
+  min-width: 0;
+}
+
+.panel-cols > div {
+  min-width: 0;
 }
 
 .panel-cols h4 {
@@ -314,6 +320,22 @@ html.drawer-open .side-drawer {
 }
 .promo-seven {
   background-image: url("https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?auto=format&fit=crop&w=900&q=70");
+}
+
+@media (max-width: 1180px) {
+  .drawer-panel.is-active {
+    grid-template-columns: 1fr;
+  }
+
+  .panel-cols {
+    grid-template-columns: repeat(2, minmax(160px, 1fr));
+  }
+}
+
+@media (max-width: 1020px) {
+  .panel-cols {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 900px) {
