@@ -88,7 +88,7 @@ function qsa(sel, root = document) {
 
 // Drawer (hamburger) + mega categories behavior
 (function initDrawer() {
-  const menuToggle = qs(".menu-toggle");
+  const menuToggles = qsa(".menu-toggle");
   const allCategoriesBtn = qs(".all-categories-btn");
   const drawer = qs(".side-drawer");
   const overlay = qs(".drawer-overlay");
@@ -97,11 +97,14 @@ function qsa(sel, root = document) {
   let resetMegaToDefault = null;
 
   const setDrawerOpen = (open) => {
-    if (!drawer || !overlay || !menuToggle) return;
+    const primaryToggle = menuToggles[0];
+    if (!drawer || !overlay || !primaryToggle) return;
     document.documentElement.classList.toggle("drawer-open", open);
     document.body.classList.toggle("no-scroll", open);
-    menuToggle.classList.toggle("open", open);
-    menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    menuToggles.forEach((t) => {
+      t.classList.toggle("open", open);
+      t.setAttribute("aria-expanded", open ? "true" : "false");
+    });
     drawer.setAttribute("aria-hidden", open ? "false" : "true");
     overlay.setAttribute("aria-hidden", open ? "false" : "true");
 
@@ -113,14 +116,16 @@ function qsa(sel, root = document) {
       const firstCat = drawer.querySelector(".drawer-cat-btn");
       firstCat?.focus();
     } else {
-      menuToggle.focus();
+      primaryToggle.focus();
     }
   };
 
-  if (menuToggle && drawer && overlay && closeBtn) {
-    menuToggle.addEventListener("click", () => {
-      const isOpen = document.documentElement.classList.contains("drawer-open");
-      setDrawerOpen(!isOpen);
+  if (menuToggles.length && drawer && overlay && closeBtn) {
+    menuToggles.forEach((t) => {
+      t.addEventListener("click", () => {
+        const isOpen = document.documentElement.classList.contains("drawer-open");
+        setDrawerOpen(!isOpen);
+      });
     });
     allCategoriesBtn?.addEventListener("click", () => {
       setDrawerOpen(true);
