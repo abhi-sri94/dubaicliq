@@ -1494,4 +1494,68 @@ textarea:focus {
       ),
       radial-gradient(circle at top, rgba(29, 78, 216, 0.12) 0%, transparent 55%);
   }
+
+  /* Mobile: eMax-style header should be compact */
+  .site-header.emax .header-top-inner {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 12px 0 10px;
+  }
+
+  .site-header.emax .brand-left {
+    min-width: 0;
+    width: auto;
+  }
+
+  .site-header.emax .top-search {
+    order: 3;
+    width: 100%;
+    max-width: none;
+  }
+
+  .site-header.emax .header-icon {
+    order: 2;
+    margin-left: auto;
+  }
+
+  .site-header.emax .search-btn {
+    padding: 12px 14px;
+  }
+
+  .site-header.emax .header-links-inner {
+    gap: 14px;
+    padding: 10px 0;
+  }
+
+  .categories-group {
+    gap: 8px;
+    padding-right: 10px;
+  }
+
+  /* Mobile: full-width banner slider should not feel huge */
+  .banner-slider.full .carousel-slide {
+    min-height: 440px;
+    padding: 22px 0 28px;
+  }
+
+  .banner-slider.full .carousel-content {
+    margin: 0 14px;
+    max-width: none;
+    padding: 18px;
+  }
+
+  .banner-slider.full .carousel-btn.is-overlay {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    top: 56%;
+  }
+
+  .banner-slider.full .carousel-btn.is-overlay.prev {
+    left: 10px;
+  }
+
+  .banner-slider.full .carousel-btn.is-overlay.next {
+    right: 10px;
+  }
 }
