@@ -265,43 +265,84 @@ function qsa(sel, root = document) {
   });
 })();
 
-// Homepage search (index only): filters featured product cards and scrolls to the section.
-(function initHomeSearch() {
+// Search routing: send queries to products page.
+(function initSearchRouting() {
   const form = qs(".search-form");
   const input = qs(".search-input");
+  if (!form || !input) return;
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const query = input.value.trim();
+    if (!query) return;
+    const url = `products.html?q=${encodeURIComponent(query)}`;
+    window.location.href = url;
+  });
+})();
+
+// Products page filters (products.html).
+(function initProductFilters() {
+  const grid = qs(".catalog-grid");
+  const cards = qsa(".catalog-card");
+  const pills = qsa(".catalog-filters .pill");
   const hint = qs(".search-hint");
-  const featured = qs("#featured");
-  const cards = qsa(".product-card");
+  const input = qs(".search-input");
+  const form = qs(".search-form");
 
-  if (!form || !input || !featured || cards.length === 0) return;
+  if (!grid || cards.length === 0) return;
 
-  const applyFilter = (q) => {
-    const query = q.trim().toLowerCase();
+  const applyFilters = (cat, q) => {
+    const query = (q || "").trim().toLowerCase();
     let visible = 0;
     cards.forEach((card) => {
       const tags = String(card.getAttribute("data-tags") || "").toLowerCase();
       const text = (card.textContent || "").toLowerCase();
-      const match = !query || tags.includes(query) || text.includes(query);
+      const cardCat = String(card.getAttribute("data-cat") || "").toLowerCase();
+      const matchCat = !cat || cat === "all" || cardCat === cat;
+      const matchQ = !query || tags.includes(query) || text.includes(query);
+      const match = matchCat && matchQ;
       card.style.display = match ? "" : "none";
       if (match) visible += 1;
     });
     if (hint) {
-      hint.textContent = query
-        ? `${visible} result${visible === 1 ? "" : "s"} for “${q.trim()}”`
+      const parts = [];
+      if (cat && cat !== "all") parts.push(`Category: ${cat}`);
+      if (query) parts.push(`Search: “${q.trim()}”`);
+      hint.textContent = parts.length
+        ? `${visible} result${visible === 1 ? "" : "s"} • ${parts.join(" • ")}`
         : "";
     }
   };
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    applyFilter(input.value);
-    featured.scrollIntoView({ behavior: "smooth", block: "start" });
+  const setActivePill = (cat) => {
+    pills.forEach((p) => p.classList.toggle("is-active", p.dataset.cat === cat));
+  };
+
+  // URL param support.
+  const params = new URLSearchParams(window.location.search);
+  const paramCat = params.get("cat") || "all";
+  const paramQ = params.get("q") || "";
+  if (input && paramQ) input.value = paramQ;
+  setActivePill(paramCat);
+  applyFilters(paramCat, paramQ);
+
+  pills.forEach((pill) => {
+    pill.addEventListener("click", () => {
+      const cat = pill.dataset.cat || "all";
+      setActivePill(cat);
+      applyFilters(cat, input ? input.value : "");
+    });
   });
 
-  input.addEventListener("input", () => {
-    // live filter, but don't auto-scroll on every keystroke
-    applyFilter(input.value);
-  });
+  if (form && input) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      applyFilters(
+        (qsa(".catalog-filters .pill.is-active")[0]?.dataset.cat) || "all",
+        input.value
+      );
+    });
+  }
 })();
 
 // Thank-you page: build WhatsApp + email links from saved lead
