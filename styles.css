@@ -14,16 +14,26 @@ html {
 
 :root {
   color-scheme: light;
-  --bg: #f6f7fb;
-  --bg-alt: #eef1f7;
-  --text: #0f172a;
+  /* Dubaicliq brand: royal blue, yellow, coral, purple, cyan */
+  --brand-blue: #2D309D;
+  --brand-blue-dark: #252a7a;
+  --brand-yellow: #FAD94E;
+  --brand-coral: #ED6360;
+  --brand-purple: #89569B;
+  --brand-cyan: #5FBFED;
+  --bg: #f5f6fa;
+  --bg-alt: #eef0f8;
+  --text: #1a1d2e;
   --muted: #5b6476;
-  --primary: #1d4ed8;
-  --primary-dark: #1e3a8a;
-  --accent: #0ea5e9;
+  --primary: #2D309D;
+  --primary-dark: #252a7a;
+  --accent: #FAD94E;
+  --accent-coral: #ED6360;
+  --accent-cyan: #5FBFED;
+  --accent-purple: #89569B;
   --card: #ffffff;
   --border: #dde2ee;
-  --shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+  --shadow: 0 24px 60px rgba(45, 48, 157, 0.12);
 }
 
 body {
@@ -34,9 +44,9 @@ body {
   line-height: 1.6;
 }
 
-/* Top sliding announcement bar (e.g. Al Nafees style) */
+/* Top sliding announcement bar – brand colors */
 .announcement-bar {
-  background: linear-gradient(90deg, #1e3a8a 0%, #1d4ed8 50%, #0ea5e9 100%);
+  background: linear-gradient(90deg, var(--brand-blue) 0%, var(--brand-blue-dark) 50%, var(--brand-purple) 100%);
   color: #fff;
   padding: 10px 0;
   overflow: hidden;
@@ -95,7 +105,7 @@ a {
 }
 
 .site-header.emax {
-  background: #0b0f17;
+  background: var(--brand-blue);
   backdrop-filter: none;
   border-bottom: none;
 }
@@ -105,7 +115,7 @@ a {
 }
 
 .header-top {
-  background: #0b0f17;
+  background: var(--brand-blue);
   color: #fff;
 }
 
@@ -117,7 +127,7 @@ a {
 }
 
 .site-header.emax .menu-toggle span {
-  background: #ffffff;
+  background: var(--brand-yellow);
 }
 
 .menu-toggle-top {
@@ -132,9 +142,18 @@ a {
   color: #fff;
 }
 
+.brand .site-logo {
+  height: 44px;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+  object-position: left center;
+  display: block;
+}
+
 .brand-left {
   justify-content: flex-start;
-  min-width: 190px;
+  min-width: 140px;
 }
 
 .top-search {
@@ -199,9 +218,9 @@ a {
 }
 
 .header-links {
-  background: #0b0f17;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--brand-blue-dark);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .header-links-inner {
@@ -409,8 +428,8 @@ html.drawer-open .side-drawer {
 }
 
 .drawer-cat-btn.is-active {
-  background: #ffffff;
-  color: var(--primary-dark);
+  background: var(--brand-yellow);
+  color: var(--brand-blue);
 }
 
 .mega-panel {
@@ -653,13 +672,14 @@ html.drawer-open .side-drawer {
 }
 
 .btn-primary {
-  background: var(--primary);
-  color: #fff;
-  box-shadow: 0 12px 30px rgba(29, 78, 216, 0.25);
+  background: var(--brand-yellow);
+  color: var(--brand-blue);
+  box-shadow: 0 12px 30px rgba(45, 48, 157, 0.25);
 }
 
 .btn-primary:hover {
-  background: var(--primary-dark);
+  background: #e6c845;
+  color: var(--brand-blue-dark);
 }
 
 .btn-outline {
@@ -770,8 +790,8 @@ html.drawer-open .side-drawer {
   font-weight: 900;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #ffffff;
-  background: linear-gradient(180deg, #0b0f17 0%, #0b0f17 40%, rgba(11, 15, 23, 0.75) 100%);
+  color: var(--brand-yellow);
+  background: linear-gradient(180deg, var(--brand-blue) 0%, var(--brand-blue-dark) 40%, rgba(45, 48, 157, 0.9) 100%);
   text-align: center;
 }
 
@@ -950,8 +970,8 @@ html.drawer-open .side-drawer {
 }
 
 .pill.is-active {
-  background: rgba(29, 78, 216, 0.12);
-  border-color: rgba(29, 78, 216, 0.35);
+  background: rgba(45, 48, 157, 0.12);
+  border-color: rgba(45, 48, 157, 0.35);
   color: var(--primary-dark);
 }
 
@@ -999,7 +1019,7 @@ html.drawer-open .side-drawer {
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  background: rgba(29, 78, 216, 0.12);
+  background: rgba(45, 48, 157, 0.12);
   color: var(--primary-dark);
   width: fit-content;
 }
@@ -1064,7 +1084,7 @@ html.drawer-open .side-drawer {
       rgba(255, 255, 255, 0.94) 58%,
       rgba(255, 255, 255, 0.62) 100%
     ),
-    radial-gradient(circle at left, rgba(29, 78, 216, 0.12) 0%, transparent 55%);
+    radial-gradient(circle at left, rgba(45, 48, 157, 0.12) 0%, transparent 55%);
 }
 
 .carousel-content {
@@ -1143,7 +1163,7 @@ html.drawer-open .side-drawer {
 }
 
 .carousel-btn:hover {
-  border-color: rgba(29, 78, 216, 0.35);
+  border-color: rgba(45, 48, 157, 0.35);
 }
 
 .carousel-dots {
@@ -1304,7 +1324,7 @@ section[id] {
 
 .equipment-card:hover {
   transform: translateY(-2px);
-  border-color: rgba(29, 78, 216, 0.35);
+  border-color: rgba(45, 48, 157, 0.35);
 }
 
 .equipment-card h3 {
@@ -1451,7 +1471,7 @@ section[id] {
 
 .cta {
   padding: 80px 0;
-  background: linear-gradient(120deg, #1e3a8a 0%, #0ea5e9 100%);
+  background: linear-gradient(120deg, var(--brand-blue) 0%, var(--brand-purple) 100%);
   color: #fff;
 }
 
@@ -1463,7 +1483,7 @@ section[id] {
 }
 
 .cta .eyebrow {
-  color: #bae6fd;
+  color: var(--brand-yellow);
 }
 
 .cta .section-lead {
@@ -1529,7 +1549,7 @@ textarea:focus {
 }
 
 .site-footer {
-  background: #0f172a;
+  background: var(--brand-blue);
   color: #e2e8f0;
   padding: 50px 0 30px;
 }
@@ -1546,6 +1566,18 @@ textarea:focus {
   margin-top: 0;
 }
 
+.footer-logo img {
+  height: 40px;
+  width: auto;
+  max-width: 160px;
+  display: block;
+  opacity: 0.95;
+}
+
+.footer-logo:hover img {
+  opacity: 1;
+}
+
 .footer-grid ul {
   list-style: none;
   padding: 0;
@@ -1560,7 +1592,7 @@ textarea:focus {
 }
 
 .footer-grid a:hover {
-  color: #ffffff;
+  color: var(--brand-yellow);
 }
 
 .checklist {
@@ -1585,7 +1617,7 @@ textarea:focus {
   width: 20px;
   height: 20px;
   border-radius: 999px;
-  background: rgba(29, 78, 216, 0.12);
+  background: rgba(45, 48, 157, 0.12);
   color: var(--primary);
   display: grid;
   place-items: center;
@@ -1701,7 +1733,7 @@ textarea:focus {
         rgba(255, 255, 255, 0.88) 58%,
         rgba(255, 255, 255, 0.45) 100%
       ),
-      radial-gradient(circle at top, rgba(29, 78, 216, 0.12) 0%, transparent 55%);
+      radial-gradient(circle at top, rgba(45, 48, 157, 0.12) 0%, transparent 55%);
   }
 
   /* Mobile: eMax-style header should be compact */
